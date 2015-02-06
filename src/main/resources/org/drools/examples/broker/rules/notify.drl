@@ -1,0 +1,15 @@
+
+
+package org.drools.examples.broker
+
+import org.drools.examples.broker.model.PortfolioAction
+import org.kie.api.runtime.rule.FactHandle
+
+rule "Portfolio action no longer needed"
+        dialect "mvel"
+        ruleflow-group "notify"
+    when
+        $pa : PortfolioAction()
+    then
+        retract( $pa );
+end
